@@ -1,0 +1,31 @@
+﻿@model IEnumerable<myMeow2.Models.GatinhoAdotadoViewModel>
+
+<style>
+    .card {
+        margin-bottom: 20px;
+    }
+    .card img {
+        height: 300px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="row">
+    <h1 class="d-flex align-items-center justify-content-center">Esses gatinhos já ganharam um lar!</h1>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@item.ImagemGatinho" class="card-img-top" alt="Imagem do gatinho" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.NomeGatinho</h5>
+                    <p class="card-text">Sexo: @item.SexoGatinho</p>
+                    <p class="card-text">Adotante: @item.NomeAdotante</p>
+                    <p class="card-text">Email: @item.EmailAdotante</p>
+                    <p class="card-text">Telefone: @item.TelefoneAdotante</p>
+                    <p class="card-text">Data da Adoção: @item.DataAdocao.ToString("dd/MM/yyyy")</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

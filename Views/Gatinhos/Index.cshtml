@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Gatinho>
+
+<style>
+    .card {
+        margin-bottom: 20px;
+    }
+    .card img {
+        height: 300px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="row">
+    @foreach (var gatinho in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@gatinho.Imagem" class="card-img-top" alt="Imagem do gatinho">
+                <div class="card-body">
+                    <h5 class="card-title">@gatinho.Nome</h5>
+                    <p class="card-text">Sexo: @gatinho.Sexo</p>
+                    <a asp-controller="Adocao" asp-action="Create" asp-route-gatinhoId="@gatinho.Id" class="btn btn-primary">Adotar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Relatórios";
+    var gatinhos = ViewBag.Gatinhos as LinkedList<myMeow2.Models.Gatinho>;
+    var adotantes = ViewBag.Adotantes as LinkedList<myMeow2.Models.Adotante>;
+    var adotantesQueAdotaramMaisDeUmGato = ViewBag.AdotantesQueAdotaramMaisDeUmGato as LinkedList<myMeow2.Models.Adotante>;
+}
+
+<h1>Relatórios</h1>
+
+<h2>Gatinhos Adotados</h2>
+@if (gatinhos != null && gatinhos.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Cor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gatinho in gatinhos)
+            {
+                <tr>
+                    <td>@gatinho.Nome</td>
+                    <td>@gatinho.Sexo</td>
+                    <td>@gatinho.Cor</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum gatinho adotado encontrado.</p>
+}
+
+<h2>Adotantes</h2>
+@if (adotantes != null && adotantes.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var adotante in adotantes)
+            {
+                <tr>
+                    <td>@adotante.Nome</td>
+                    <td>@adotante.Email</td>
+                    <td>@adotante.Telefone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum adotante encontrado.</p>
+}
+
+@if(adotantesQueAdotaramMaisDeUmGato != null && adotantesQueAdotaramMaisDeUmGato.Count > 0)
+{
+    <h2>Adotantes que adotaram mais de um gato</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var adotante in adotantesQueAdotaramMaisDeUmGato)
+            {
+                <tr>
+                    <td>@adotante.Nome</td>
+                    <td>@adotante.Email</td>
+                    <td>@adotante.Telefone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum adotante que adotou mais de um gato encontrado.</p>
+}

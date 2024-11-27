@@ -1,0 +1,61 @@
+﻿@model AdocaoViewModel
+
+@{
+    ViewData["Title"] = "Adotar Gatinho";
+}
+
+<h1>Adotar Gatinho</h1>
+
+<div class="card mb-4">
+    <img src="@Model.GatinhoImagem" class="card-img-top" alt="Imagem do gatinho" style="max-height: 300px; object-fit: cover;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.GatinhoNome</h5>
+        <p class="card-text">
+            <strong>Sexo:</strong> @Model.GatinhoSexo <br />
+            <strong>Status:</strong> @(Model.GatinhoAdotado ? "Já adotado" : "Disponível para adoção")
+        </p>
+    </div>
+</div>
+
+@if (!Model.GatinhoAdotado)
+{
+    <form asp-action="Create" method="post">
+        <input type="hidden" asp-for="GatinhoId" />
+        <input type="hidden" asp-for="GatinhoNome" />
+        <input type="hidden" asp-for="GatinhoImagem" />
+        <input type="hidden" asp-for="GatinhoSexo" />
+
+
+        <div class="mb-3">
+            <label asp-for="Nome" class="form-label">Seu Nome</label>
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Seu Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Telefone" class="form-label">Seu Telefone</label>
+            <input asp-for="Telefone" class="form-control" />
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Confirmar Adoção</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-warning">
+        Este gatinho já foi adotado. Confira outros gatinhos disponíveis para adoção!
+    </div>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
