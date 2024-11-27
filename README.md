@@ -1,27 +1,34 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=00494c&height=120&section=header"/>
 
-💻 Projeto da disciplina algoritmos e estrutura de dados
+# 💻 Projeto da disciplina algoritmos e estrutura de dados
+
 Este projeto visa a implementação de um sistema de gerenciamento de adoções de gatinhos.
 
-📋 Funcionalidades
-Consultar gatinhos para adoção
-Adotar gatinhos
-Verificar relatórios e registros
+## 📋 Funcionalidades
+
+- **Consultar gatinhos para adoção**
+- **Adotar gatinhos**
+- **Verificar relatórios e registros**
 
 
-🚀 Tecnologias Utilizadas
-C#: Linguagem principal utilizada para o desenvolvimento.
-.Net 8: Framework de desenvolvimento
-PostgreSQL: Banco de dados relacional onde os dados são armazenados.
+## 🚀 Tecnologias Utilizadas
 
-🛠️ Como Executar o Projeto
-1 - Configurar a conexão com o banco no arquivo appsettings.json
+- **C#**: Linguagem principal utilizada para o desenvolvimento.
+- **.Net 8**: Framework de desenvolvimento
+- **PostgreSQL**: Banco de dados relacional onde os dados são armazenados.
 
-2 - Execute o seguinte comando no terminal:
+## 🛠️ Como Executar o Projeto
+
+
+**1** - Configurar a conexão com o banco no arquivo `appsettings.json`
+
+**2** - Execute o seguinte comando no terminal:
+```bash
 dotnet ef migrations add Inicial
-
+```
+```bash
 dotnet ef database update
-
+```
 
 🤝Criado por:
 <table align="center">
