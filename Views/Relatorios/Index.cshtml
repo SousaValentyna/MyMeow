@@ -5,9 +5,23 @@
     var adotantesQueAdotaramMaisDeUmGato = ViewBag.AdotantesQueAdotaramMaisDeUmGato as LinkedList<myMeow2.Models.Adotante>;
 }
 
-<h1>Relatórios</h1>
+<style>
+    .table {
+        margin-top: -10px;
+    }
 
-<h2>Gatinhos Adotados</h2>
+    h5 {
+        width: 100%;
+        background-color: #9494cc;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+<h2 style="color: #746cfc">Relatórios</h2>
+
+<h5 class="mt-4">     Gatinhos Adotados</h5>
 @if (gatinhos != null && gatinhos.Count > 0)
 {
     <table class="table">
@@ -35,7 +49,7 @@ else
     <p>Nenhum gatinho adotado encontrado.</p>
 }
 
-<h2>Adotantes</h2>
+<h5 class="mt-4">     Adotantes</h5>
 @if (adotantes != null && adotantes.Count > 0)
 {
     <table class="table">
@@ -65,7 +79,7 @@ else
 
 @if(adotantesQueAdotaramMaisDeUmGato != null && adotantesQueAdotaramMaisDeUmGato.Count > 0)
 {
-    <h2>Adotantes que adotaram mais de um gato</h2>
+    <h5 class="mt-4">     Adotantes que adotaram mais de um gato</h5>
     <table class="table">
         <thead>
             <tr>

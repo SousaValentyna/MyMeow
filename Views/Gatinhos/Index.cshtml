@@ -4,13 +4,32 @@
     .card {
         margin-bottom: 20px;
     }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
     .card img {
         height: 300px;
         object-fit: cover;
     }
+    .btn{
+        border: none;
+        background-color: #746cfc;
+        width: 100%;
+    }
+    .btn:hover{
+        background-color: #9494cc;
+    }
 </style>
 
 <div class="row">
+    <h2 style="color: #746cfc" class="mb-4 d-flex align-items-center justify-content-center">Gatinhos disponíveis para adoção:</h2>
+
     @foreach (var gatinho in Model)
     {
         <div class="col-md-4">

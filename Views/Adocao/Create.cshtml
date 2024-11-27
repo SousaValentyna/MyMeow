@@ -4,10 +4,42 @@
     ViewData["Title"] = "Adotar Gatinho";
 }
 
-<h1>Adotar Gatinho</h1>
+<style>
+    .adocao-card {
+        max-width: 600px;
+        margin: 20px auto;
+    }
 
-<div class="card mb-4">
-    <img src="@Model.GatinhoImagem" class="card-img-top" alt="Imagem do gatinho" style="max-height: 300px; object-fit: cover;">
+        .adocao-card img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .adocao-card .card-body {
+            text-align: center;
+        }
+
+    .form-section {
+        margin-top: 20px;
+    }
+
+    .btn {
+        background-color: #746cfc;
+        border: none;
+        width: 100%;
+    }
+
+        .btn:hover {
+            background-color: #9494cc;
+        }
+
+    .alert-warning {
+        text-align: center;
+    }
+</style>
+
+<div class="adocao-card card">
+    <img src="@Model.GatinhoImagem" class="card-img-top" alt="Imagem do gatinho">
     <div class="card-body">
         <h5 class="card-title">@Model.GatinhoNome</h5>
         <p class="card-text">
@@ -19,33 +51,34 @@
 
 @if (!Model.GatinhoAdotado)
 {
-    <form asp-action="Create" method="post">
-        <input type="hidden" asp-for="GatinhoId" />
-        <input type="hidden" asp-for="GatinhoNome" />
-        <input type="hidden" asp-for="GatinhoImagem" />
-        <input type="hidden" asp-for="GatinhoSexo" />
+    <div class="form-section">
+        <form asp-action="Create" method="post">
+            <input type="hidden" asp-for="GatinhoId" />
+            <input type="hidden" asp-for="GatinhoNome" />
+            <input type="hidden" asp-for="GatinhoImagem" />
+            <input type="hidden" asp-for="GatinhoSexo" />
 
+            <div class="mb-3">
+                <label asp-for="Nome" class="form-label">Seu Nome</label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="Nome" class="form-label">Seu Nome</label>
-            <input asp-for="Nome" class="form-control" />
-            <span asp-validation-for="Nome" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Seu Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="Email" class="form-label">Seu Email</label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
+            <div class="mb-3">
+                <label asp-for="Telefone" class="form-label">Seu Telefone</label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="Telefone" class="form-label">Seu Telefone</label>
-            <input asp-for="Telefone" class="form-control" />
-            <span asp-validation-for="Telefone" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Confirmar Adoção</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Confirmar Adoção</button>
+        </form>
+    </div>
 }
 else
 {
@@ -53,6 +86,7 @@ else
         Este gatinho já foi adotado. Confira outros gatinhos disponíveis para adoção!
     </div>
 }
+
 
 @section Scripts {
     @{

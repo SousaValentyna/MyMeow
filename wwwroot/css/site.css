@@ -18,9 +18,24 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #FFFFFF;
+    margin-bottom: 60px;
 }
 
 .logo{
-    width: 50px
+    width: 40px;
+    margin-right: 5px;
+}
+
+.container-fluid {
+    background-color: #9494cc;
+}
+
+.navbar {
+    background-color: #9494cc !important;
+    
+}
+
+.nav-link{
+    color: #FFFFFF !important;
 }
