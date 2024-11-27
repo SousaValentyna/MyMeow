@@ -21,8 +21,18 @@ namespace myMeow2.Models
 
         [Required]
         public DateTime Data { get; set; } // Data da adoção
-    }
 
+        // Construtor padrão (necessário para o EF Core)
+        public Adocao() { }
+
+        // Construtor personalizado
+        public Adocao(int gatinhoId, int adotanteId, DateTime data)
+        {
+            GatinhoId = gatinhoId;
+            AdotanteId = adotanteId;
+            Data = data;
+        }
+    }
 
 
 }
